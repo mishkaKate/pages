@@ -1,0 +1,43 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 9999px; /* Максимальное скругление (форма таблетки) */
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 27px;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  user-select: none;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  box-shadow: 0 4px 16px 0 rgba(65, 60, 57, 0.21);
+}
+
+/* Светлый вариант */
+.chip--light {
+  background-color: #f1f5f9;
+  color: #1e293b;
+  border: 1px solid #cbd5e1;
+}
+
+/* Темный вариант */
+.chip--dark {
+  background-color: #1e293b;
+  color: #f8fafc;
+  border: 1px solid #334155;
+}
+
+.chip--big {
+    font-size: 54px;
+}
+
+@media (max-width: 600px) {
+    .chip {
+        font-size: 16px;
+    }
+
+    .chip--big {
+        font-size: 32px;
+    }
+}

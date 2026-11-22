@@ -1,0 +1,223 @@
+.slide-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('./images/page1.png');
+    background-repeat: no-repeat;       /* Запрет повторения */
+    background-position: center bottom;
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+}
+
+.title {
+    font-size: 46px;
+    color: #4B4B4B;
+    font-weight: 600;
+    z-index: 1;
+
+    span {
+        display: block;
+    }
+}
+
+.images {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.image-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.image-wrapper-drayer {
+    margin: 0 0 46px 46px;
+    align-items: start;
+}
+
+.image-wrapper-styler {
+  margin: 0 46px 46px 0;
+  align-items: end;
+
+  & .chip  {
+    margin-right: 40px;
+  }
+}
+
+.img {
+    width: 100%;
+    aspect-ratio: 320/431;
+    background-image: url('./images/drayer.png');
+    border-radius: 32px;
+    margin-top: 12px;
+    box-shadow: 15px 16px 24px 4px rgba(65, 60, 57, 0.21);
+}
+.img-drayer {
+   background-image: url('./images/drayer.png');
+
+}
+
+.img-styler {
+    background-image: url('./images/styler.png');
+}
+
+.center .chip {
+    position: relative;
+    top: -10px;
+}
+
+.glow-bg {
+  position: relative;
+  overflow: hidden;
+  position: absolute;
+  width: 424px;
+  height: 424px;
+  right: 15%;
+  opacity: 50%;
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 151, 106, 0.9) 0%,
+    rgba(255, 151, 106, 0.35) 35%,
+    rgba(255, 151, 106, 0) 70%
+  );
+}
+
+/* Легкий тайловый шум поверх градиента */
+.glow-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.28;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://w3.org id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.6' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+}
+
+.glow-bg-sand {
+  position: absolute;
+  overflow: hidden;
+  width: 424px;
+  height: 424px;
+  left: 15%;
+  top: 10%;
+  opacity: 49%;
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    rgba(245, 212, 172, 0.9) 0%,
+    rgba(245, 212, 172, 0.35) 35%,
+    rgba(245, 212, 172, 0) 70%
+  );
+}
+
+/* Слой шума поверх (Multitone Noise, opacity 28%) */
+.glow-bg-sand::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.28;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 1;
+
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://w3.org id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.6' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 160px 160px;
+}
+
+.glow-bg-sand > * {
+  position: relative;
+  z-index: 2;
+}
+
+.glow-bg-white {
+  position: absolute;
+  width: 424px;
+  height: 424px;
+  left: calc(50% - 222px);
+  top: 0%;
+  opacity: 0.4;
+  overflow: hidden;
+  /* Плавное белое круглое свечение #FFFFFF */
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.35) 35%,
+    rgba(255, 255, 255, 0) 70%
+  );
+}
+
+/* Слой шума поверх (Multitone Noise, opacity 28%) */
+.glow-bg-white::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.28;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 1;
+
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://w3.org id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.6' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 160px 160px;
+}
+
+.glow-bg-white > * {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 600px) {
+    .slide-wrapper {
+        background-image: url('./images/page1-mob.png');
+        background-size: cover;
+        justify-content: space-between;
+    }
+
+    .title {
+        font-size: 25px;
+        margin-top: 24px;
+    }
+
+    .center {
+        position: absolute;
+        top: 146px;
+        left: calc(50% - 49px);
+    }
+
+    .center .chip {
+        font-size: 32px;
+    }
+
+    .img {
+        width: 45vw;
+        height: auto;
+        aspect-ratio: 155/307;
+    }
+
+    .image-wrapper-drayer {
+        margin: 0;
+        position: relative;
+
+        & .chip {
+            position: absolute;
+            top: 42px;
+            left: calc(50% - 33px);
+        }
+    }
+
+    .image-wrapper-styler {
+        margin: 0;
+        position: relative;
+
+        & .chip {
+            position: absolute;
+            top: 42px;
+            left: calc(50% - 47px);
+        }
+    }
+}
+
